@@ -1,6 +1,3 @@
 <% flash.each do |message_type, message| %>
-#flashという変数は、ハッシュであるため、keyとvalueという二つの値をもつ。
-#ハッシュ例　dragonball　= {hero:goku} 今回の場合　flash = {"success":"messageが正しく送信されました"}
-#今回は、key(success,danger)を、message_typeという変数に代入し、value("messageが正常に送信されました")をmessageという変数に代入している。
   <div class="alert alert-<%= message_type %>"><%= message %></div>
 <% end %>

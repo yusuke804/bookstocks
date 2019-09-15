@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="card text-white bg-info col-sm-3">
+      <img class="card-img-top mt-4" src=<%= @post.user.image %> alt="user-image">
+        <h4 class="card-title"><%= @post.user.name %></h4>
+    </div>
+    <ul class="col-sm-9 list-group">
+      <li class="list-group-item text-center">紹介する一節</li>
+      <li class="list-group-item list-group-item-secondary text-center">
+        <div>
+          <h3><%= @post.introduce_content %></h3>
+        </div>
+        <div>
+          <p><%= @post.author_name %> <%= @post.novel_title %></p>
+        </div>
+      </li>
+      <li class="list-group-item text-center">投稿者からのメッセージ</li>
+      <li class="list-group-item list-group-item-secondary text-center">
+        <div>
+          <h3><%= @post.tweet_content %></h3>
+        </div>
+      </li>
+      <li class="list-group-item text-center">
+        <% if current_user == @post.user %>
+          <%= link_to "Delete", @post, method: :delete, data: { confirm: "本当に削除しますか？（データは復元しません）" }, class: 'btn btn-danger btn-lg' %>
+        <% end %>
+      </li>
+      <li class="list-group-item text-center">
+        <%= render "favorites/fav_button", post: @post %>
+      </li>
+    </ul>
+  </div> 
+</div>
+  

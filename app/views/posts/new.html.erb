@@ -1,0 +1,34 @@
+<div class="text-center">
+  <h1>新規投稿</h1>
+</div>
+<div class="row">
+  <div class="col-sm-8 offset-sm-2">
+    
+    <%= form_with(model: @post, local: true) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+      
+      <div class="form-group">
+        <%= f.label :author_name, "著者名" %>
+        <%= f.text_field :author_name, class: "form-control" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :novel_title, "小説名" %>
+        <%= f.text_field :novel_title, class: "form-control" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :introduce_content, "紹介する一節" %>
+        <%= f.text_area :introduce_content, class: "form-control" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :tweet_content, "ひとこと（この一節の解説や小説のオススメポイントなど）" %>
+        <%= f.text_area :tweet_content, class: "form-control" %>
+      </div>
+      
+      <%= f.submit "投稿", class: "btn btn-primary btn-block" %>
+    
+    <% end %>
+  </div>
+</div>
