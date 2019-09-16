@@ -4,6 +4,9 @@ class Post < ApplicationRecord
   has_many :favorites
   has_many :users, through: :favorites
   
+  has_many :searches
+  has_many :tags, through: :searches
+  
   validates :author_name, presence: true, length: { maximum:30 }
   validates :novel_title, presence: true, length: { maximum:50 }
   validates :introduce_content, presence: true, length: { maximum:100 }

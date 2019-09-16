@@ -27,7 +27,11 @@ class UsersController < ApplicationController
   def update
   end
 
-
+  def likes
+    @user = User.find(params[:id])
+    @favorites = @user.favposts.page(params[:page]).per(10)
+  end
+  
   private
   
   def user_params

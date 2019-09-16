@@ -9,7 +9,6 @@ class User < ApplicationRecord
   has_many :posts
   has_many :favorites
   has_many :favposts, through: :favorites, source: :post
-
   
   def favorite(post)
     self.favorites.find_or_create_by(post_id: post.id)
