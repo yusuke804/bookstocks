@@ -27,6 +27,15 @@
         <%= f.text_area :tweet_content, class: "form-control" %>
       </div>
       
+      <br>
+      
+      <div class="form-group">
+        <%= f.label :tag_name, "こんな心情の時に読んで欲しい" %> <br> 
+        <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :tag_name, class: "form-control" do |b| %>
+          <%= b.label { b.check_box + b.text } %>
+        <% end %>
+      </div>
+      
       <%= f.submit "投稿", class: "btn btn-primary btn-block" %>
     
     <% end %>

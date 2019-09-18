@@ -12,7 +12,7 @@ class Post < ApplicationRecord
   validates :introduce_content, presence: true, length: { maximum:100 }
   validates :tweet_content, presence: true,  length: { maximum:500 }
   validate :introduce_longer_than_tweet
-
+  
   private
 
   def introduce_longer_than_tweet

@@ -12,6 +12,7 @@ class PostsController < ApplicationController
 
   def new
     @post = current_user.posts.build
+    @post.searches.build
   end
 
   def create
@@ -41,7 +42,7 @@ class PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:introduce_content, :tweet_content, :author_name, :novel_title)    
+    params.require(:post).permit(:introduce_content, :tweet_content, :author_name, :novel_title, { :tag_ids => [ ]  })    
   end
   
   def correct_user
