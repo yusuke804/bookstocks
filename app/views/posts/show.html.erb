@@ -20,6 +20,18 @@
           <h3><%= @post.tweet_content %></h3>
         </div>
       </li>
+      <li class="list-group-item list-group-item-secondary text-center">こんな心情の時に読んでほしい</li>
+      <li class="list-group-item text-center">
+        <div>
+          <% unless @post.tags.blank? %>
+            <% @post.tags.each do |tag| %>
+              <%= link_to "#{tag.tag_name}", tagged_post_path(tag_id: tag.id), class: "btn btn-outline-primary" %>
+            <% end %>
+          <% else %>
+              <p>タグが選択されていません</p>
+          <% end %>
+        </div>
+      </li>
       <% if current_user == @post.user %>  
         <li class="list-group-item text-center list-group-item-secondary">
           <%= link_to "Delete", @post, method: :delete, data: { confirm: "本当に削除しますか？（データは復元しません）" }, class: 'btn btn-danger btn-lg' %>
@@ -31,7 +43,7 @@
     </ul>
   </div>
   <div class="offset-sm-3 text-center bt-3">
-    <%= link_to "投稿一覧へ戻る", posts_path %>
+    <%= link_to "戻る", "javascript:history.back()" %>
   </div>
 </div>
   

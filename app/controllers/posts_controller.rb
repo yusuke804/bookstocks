@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -39,10 +39,15 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def tagged
+    @tag = Tag.find(params[:tag_id])
+    @posts = @tag.posts.page(params[:page])
+  end
+
   private
   
   def post_params
-    params.require(:post).permit(:introduce_content, :tweet_content, :author_name, :novel_title, { :tag_ids => [ ]  })    
+    params.require(:post).permit(:introduce_content, :tweet_content, :author_name, :novel_title, tag_ids: [ ])    
   end
   
   def correct_user

@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
   
-  resources :posts 
+  resources :posts do 
+    member do 
+      get :tagged
+    end
+  end
   resources :favorites, only: [:create, :destroy]
   resources :searches, only: [:create]
 end
