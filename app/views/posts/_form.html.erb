@@ -26,7 +26,7 @@
       
       <div class="form-group mb-3">
         <%= f.label :tag_name, "こんな心情の時に読んで欲しい" %> <br> 
-        <div class="border rounded text-center">
+        <div class="border rounded text-center p-3">
           <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :tag_name, class: "form-control" do |b| %>
             <%= b.label { b.check_box + b.text } %>
           <% end %>

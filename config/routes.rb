@@ -17,8 +17,10 @@ Rails.application.routes.draw do
       get :tagged
     end
     collection do
-      get :searched
+      get :searched 
+      get :searched_result
     end
   end
+  
   resources :favorites, only: [:create, :destroy]
 end

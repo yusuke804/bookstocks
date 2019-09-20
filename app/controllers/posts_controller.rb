@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
   
   def index
-    @posts = Post.all.order(id: :desc).page(params[:page]).per(5)
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true).order(id: :desc).page(params[:page]).per(7)
   end
 
   def show
@@ -50,12 +51,16 @@ class PostsController < ApplicationController
 
   def tagged
     @tag = Tag.find(params[:tag_id])
-    @posts = @tag.posts.page(params[:page])
+    @posts = @tag.posts.page(params[:page]).per(7)
   end
   
   def searched
-    @q =Post.ransack(params[:q])
-    @posts = @q.result(distinct: true)
+    @tags = Tag.all
+  end
+  
+  def searched_result
+    @tag = Tag.find(params[:tag_id])
+    @posts = @tag.posts.page(params[:page]).per(7)
   end
 
   private

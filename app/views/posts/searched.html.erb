@@ -1,0 +1,11 @@
+<h1 class="text-center">かんたん検索</h1>
+<br>
+<h3 class="text-center">あなたの気分を教えてください</h3>
+
+<% @tags.each do |tag| %>
+  <div class="m-3 text-center">  
+    <%= link_to "#{tag.tag_name}", searched_result_posts_path(tag_id: tag.id), class: "btn btn-outline-primary btn-lg" %>
+  </div>
+<% end %>
+
+
