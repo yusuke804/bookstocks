@@ -34,7 +34,10 @@
       </li>
       <% if current_user == @post.user %>  
         <li class="list-group-item text-center list-group-item-secondary">
-          <%= link_to "Delete", @post, method: :delete, data: { confirm: "本当に削除しますか？（データは復元しません）" }, class: 'btn btn-danger btn-lg' %>
+          <%= link_to "削除", @post, method: :delete, data: { confirm: "本当に削除しますか？（データは復元しません）" }, class: 'btn btn-danger btn-lg' %>
+        </li>
+        <li class="list-group-item text-center list-group-item-secondary">
+          <%= link_to "編集", edit_post_path, class: "btn btn-info btn-lg" %>
         </li>
       <% end %>
       <li class="list-group-item text-center list-group-item-secondary ">

@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-sm-10 offset-sm-1">
+    <%= form_with(model: post, local: true) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+      
+      <div class="form-group mt-3">
+        <%= f.label :author_name, "著者名" %>
+        <%= f.text_field :author_name, class: "form-control" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :novel_title, "小説名" %>
+        <%= f.text_field :novel_title, class: "form-control" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :introduce_content, "紹介する一節" %>
+        <%= f.text_area :introduce_content, class: "form-control" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :tweet_content, "ひとこと（この一節の解説や小説のオススメポイントなど）" %>
+        <%= f.text_area :tweet_content, class: "form-control" %>
+      </div>
+      
+      
+      <div class="form-group mb-3">
+        <%= f.label :tag_name, "こんな心情の時に読んで欲しい" %> <br> 
+        <div class="border rounded text-center">
+          <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :tag_name, class: "form-control" do |b| %>
+            <%= b.label { b.check_box + b.text } %>
+          <% end %>
+        </div>
+      </div>
+      <%= f.submit "投稿", class: "btn btn-primary col-sm-4 offset-sm-4" %>
+    <% end %>
+  </div>
+</div>
+<div class="text-center col-sm-4 offset-sm-4 mt-3">
+    <%= link_to "戻る", "javascript:history.back()" %>
+</div>

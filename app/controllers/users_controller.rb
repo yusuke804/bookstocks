@@ -25,6 +25,15 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
+    
+    if @user.update(user_params)
+      flash[:success] = "ユーザー情報の更新を完了しました"
+      redirect_to @user
+    else
+      flash[:danger] = "ユーザー情報の更新に失敗しました"
+      render "users/edit"
+    end
   end
 
   def likes
