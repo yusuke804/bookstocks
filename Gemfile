@@ -60,3 +60,4 @@ gem "carrierwave"
 gem "rmagick"
 
 gem 'pry-byebug', group: :development
+gem "ransack"

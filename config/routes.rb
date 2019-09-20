@@ -16,7 +16,9 @@ Rails.application.routes.draw do
     member do 
       get :tagged
     end
+    collection do
+      get :searched
+    end
   end
   resources :favorites, only: [:create, :destroy]
-  resources :searches, only: [:create]
 end

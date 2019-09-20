@@ -52,6 +52,11 @@ class PostsController < ApplicationController
     @tag = Tag.find(params[:tag_id])
     @posts = @tag.posts.page(params[:page])
   end
+  
+  def searched
+    @q =Post.ransack(params[:q])
+    @posts = @q.result(distinct: true)
+  end
 
   private
   
