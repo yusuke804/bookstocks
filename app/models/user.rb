@@ -6,7 +6,6 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
-  validates :image, presence: true
   mount_uploader :image, ImageUploader
   has_many :posts
   has_many :favorites
