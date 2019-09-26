@@ -1,5 +1,21 @@
 <h1 class="text-center mt-3 mb-3">ユーザー一覧</h1>
-
+<div class="border border-dark rounded p-3 bg-light">
+  <%= search_form_for(@q, url: admin_users_path, method: :get) do |f| %>
+    <div class="form-group mt-3">
+      <%= f.label :name, "user-nameから探す" %>
+      <%= f.search_field :name_cont, class: "form-control" %>
+    </div>
+    <%= f.submit "検索", class: "btn btn-primary btn-sm" %>
+  <% end %>
+  
+  <%= search_form_for(@q, url: admin_users_path, method: :get) do |f| %>
+    <div class="form-group mt-3">
+      <%= f.label :id, "IDから探す" %>
+      <%= f.search_field :id_eq, class:"form-control" %>
+    </div>
+    <%= f.submit "検索", class: "btn btn-primary btn-sm" %>
+  <% end %>
+</div>
 <div class="row mt-3">
   <div class="col-sm-10 offset-sm-1">
     <table class="table table-bordered tables-hover-rows table-striped">

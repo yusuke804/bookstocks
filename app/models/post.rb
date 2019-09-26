@@ -1,10 +1,10 @@
 class Post < ApplicationRecord
   belongs_to :user
   
-  has_many :favorites
-  has_many :users, through: :favorites
+  has_many :favorites, dependent: :destroy
+  has_many :users, through: :favorites, dependent: :destroy
   
-  has_many :searches
+  has_many :searches, dependent: :destroy
   has_many :tags, through: :searches
   
   validates :author_name, presence: true, length: { maximum:30 }

@@ -2,13 +2,15 @@ class Admin::UsersController < ApplicationController
   before_action :require_admin
   
   def index
-    @users = User.all.order(id: :desc)
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true).order(id: :desc).page(params[:page]).per(20)
   end
 
   def destroy
     @user = User.find(params[:id])
     @user.destroy
     flash[:success] = "ユーザーを削除しました"
+    redirect_to admin_users_path
   end
 
   private
