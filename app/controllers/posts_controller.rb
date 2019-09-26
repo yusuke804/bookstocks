@@ -5,8 +5,8 @@ class PostsController < ApplicationController
   def index
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true).order(id: :desc).page(params[:page]).per(7)
-  end
-
+  end 
+  
   def show
     @post = Post.find(params[:id])
   end
