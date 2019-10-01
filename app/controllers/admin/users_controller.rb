@@ -8,9 +8,27 @@ class Admin::UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
+    @posts = @user.posts 
+    @favorites = @user.favorites
+    
+    @user.transaction do
+      @posts.each do |post|
+        post.searches.each do |search|
+          search.destroy!
+        end
+        post.destroy!
+      end
+      @favorites.each do |favorite|
+        favorite.destroy!
+      end
+      @user.destroy!
+    end
+    
     flash[:success] = "ユーザーを削除しました"
     redirect_to admin_users_path
+    
+    rescue => e
+      render plain: e.message
   end
 
   private
