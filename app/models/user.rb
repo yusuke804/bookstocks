@@ -23,6 +23,4 @@ class User < ApplicationRecord
   def favpost?(post)
     self.favposts.include?(post)
   end
-
-
 end

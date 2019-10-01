@@ -1,0 +1,13 @@
+
+[1mFrom:[0m /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activesupport-5.2.3/lib/active_support/callbacks.rb @ line 246 ActiveSupport::Callbacks::Filters::After.halting:
+
+    [1;34m244[0m: [32mdef[0m [1;36mself[0m.[1;34mhalting[0m(callback_sequence, user_callback)
+    [1;34m245[0m:   callback_sequence.after [32mdo[0m |env|
+ => [1;34m246[0m:     [32munless[0m env.halted
+    [1;34m247[0m:       user_callback.call env.target, env.value
+    [1;34m248[0m:     [32mend[0m
+    [1;34m249[0m: 
+    [1;34m250[0m:     env
+    [1;34m251[0m:   [32mend[0m
+    [1;34m252[0m: [32mend[0m
+
