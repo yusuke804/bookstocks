@@ -66,7 +66,7 @@ class PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:introduce_content, :tweet_content, :author_name, :novel_title, tag_ids: [ ])    
+    params.require(:post).permit(:introduce_content, :tweet_content, :author_name, :novel_title, :image, tag_ids: [ ])    
   end
   
   def correct_user

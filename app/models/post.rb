@@ -13,6 +13,8 @@ class Post < ApplicationRecord
   validates :tweet_content, presence: true,  length: { maximum:500 }
   validate :introduce_longer_than_tweet
   
+  mount_uploader :image, ImageUploader
+  
   private
 
   def introduce_longer_than_tweet
