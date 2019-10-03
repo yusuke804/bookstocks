@@ -2,7 +2,7 @@
   <div class="row mt-4">
     <div class="card text-white bg-info col-sm-3">
       <img class="card-img-top mt-4" src=<%= @post.user.image %> alt="user-image">
-        <h4 class="card-title"><%= @post.user.name %></h4>
+        <h4 class="card-title mt-2 text-center"><%= @post.user.name %></h4>
     </div>
     <ul class="col-sm-9 list-group">
       <li class="list-group-item list-group-item-secondary text-center">紹介する一節</li>
@@ -31,6 +31,13 @@
               <p>タグが選択されていません</p>
           <% end %>
         </div>
+      </li>
+      <li class="list-group-item text-center">
+        <p>
+          <% if @post.image? %>
+            <%= image_tag @post.image.url %>
+          <% end %>
+        </p>
       </li>
       <% if current_user == @post.user %>  
         <li class="list-group-item text-center list-group-item-secondary">
