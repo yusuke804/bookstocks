@@ -32,12 +32,15 @@
           <% end %>
         </div>
       </li>
+      <li class="list-group-item list-group-item-secondary text-center">この小説を物語る画像</li>
       <li class="list-group-item text-center">
-        <p>
+        <div>
           <% if @post.image? %>
             <%= image_tag @post.image.url %>
+          <% else %>
+            <p>画像が選択されていません</p>
           <% end %>
-        </p>
+        </div>
       </li>
       <% if current_user == @post.user %>  
         <li class="list-group-item text-center list-group-item-secondary">
