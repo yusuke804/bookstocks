@@ -19,7 +19,7 @@ class Post < ApplicationRecord
 
   def introduce_longer_than_tweet
     if self.introduce_content.length > self.tweet_content.length
-      errors.add(:tweet_content, ":「ひとこと」が「紹介する一節」より短いため、投稿できません")
+      errors.add(:tweet_content, "「ひとこと」が「紹介する一節」より短いため、投稿できません")
     end
   end
 end
