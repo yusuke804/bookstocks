@@ -4,6 +4,6 @@ FactoryBot.define do
     novel_title { "test" }
     introduce_content { "test" }
     tweet_content { "testtest" }
-    association :owner
+    association :user
   end
 end
