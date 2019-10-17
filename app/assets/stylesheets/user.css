@@ -1,0 +1,56 @@
+.users {
+    background-image: url("jumbotron.jpg")
+}
+
+.users h1 { 
+    width: 380px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgba( 255, 255, 255, 0.40);
+    border-left: 10px solid #000080;
+    border-right: 10px solid #000080;
+    box-shadow: 7px 7px 5px #000000;
+    border-radius: 5px;
+}
+
+.users .card {
+    border-radius: 20% 0 30% 0;
+}
+
+.users .card-img-top { 
+    padding: 10px;
+    border-radius: 30% 0 30% 0;
+}
+
+.users .card-title {
+    font-family: inherit;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.users .nav {
+    border: 3px inset #FFFFFF;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.users .bd {
+    border-radius: 20px 20px 20px 20px;
+}
+
+.users .list-group-item {
+    border-radius: 5px 5px 5px 5px;
+    border: 1px outset #000000;
+}
+
+.users .lead { 
+    font-style: italic;
+}
+
+.users .user_form {
+    margin-top: 50px;
+}
+
+.users small {
+    background-color: red;
+    border-radius: 3px;
+}

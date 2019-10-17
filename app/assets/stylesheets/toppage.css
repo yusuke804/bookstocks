@@ -1,0 +1,32 @@
+.toppages {
+    background-image: url("toppage.jpg");
+}
+
+.toppages .jumbotron { background-color: rgba( 255, 255, 255, 0.60);
+    
+}
+
+    
+.toppages .display-1 {
+    width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+    font-weight: lighter;
+    color: black;
+    text-shadow: 8px 8px 8px #000080;
+    font-family: inherit;
+    border-bottom: 3px solid #ff6600;
+}
+
+.toppages .h3 {
+    color: black;
+    font-weight: lighter;
+    font-family: inherit;
+}
+
+
+.toppages .btn { 
+    font-weight: lighter;
+    box-shadow: 0 0 5px 5px #808080 inset;
+    background-color: #FF6600;
+}

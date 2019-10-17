@@ -3,10 +3,12 @@
   <ul class="list-group mt-3">
     <li class="list-group-item media mb-3 text-center">
       <div>
-        <h3><%= post.introduce_content %></h3>
+        <blockquote>
+          <q class="lead"><%= post.introduce_content %></q>
+        </blockquote>
       </div>
       <div>
-        <p><%= post.author_name %> <%= post.novel_title %></p>
+        <p><%= post.author_name %> 『<%= post.novel_title %>』</p>
       </div>
       <%= render "layouts/show_button", post: post %>
     </li>
