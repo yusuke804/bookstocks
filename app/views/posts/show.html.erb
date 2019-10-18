@@ -48,22 +48,16 @@
       </div>
     </li>
     <li class="list-group-item text-center list-group-item-secondary">
-      <div class="fav_button">
+      <div class="fav_button_inline-block">
         <%= render "favorites/fav_button", post: @post %>
       </div>
       <% if current_user == @post.user %>  
-        <div class="delete_button">
-          <%= link_to "削除", @post, method: :delete, data: { confirm: "本当に削除しますか？（データは復元しません）" }, class: 'btn btn-danger' %>
-        </div>
-        <div class="edit_button">
-          <%= link_to "編集", edit_post_path, class: "btn btn-info" %>
-        </div>
+        <%= link_to "削除", @post, method: :delete, data: { confirm: "本当に削除しますか？（データは復元しません）" }, class: "delete_button btn btn-danger" %>
+        <%= link_to "編集", edit_post_path, class: "edit_button btn btn-info" %>
       <% end %>
     </li>
   </ul>
 </div>
-<div class="offset-sm-3 text-center bt-3">
+<div class="offset-sm-2 text-center mt-3">
   <%= link_to "戻る", "javascript:history.back()" %>
 </div>
-
-  

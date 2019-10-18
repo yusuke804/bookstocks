@@ -16,6 +16,7 @@
 .posts .card {
     border-radius: 20% 0 30% 0;
     border: 1px outset #000000;
+    box-shadow: 0 10px 10px 0 #000000; 
 }
 
 .posts .card-img-top {
@@ -29,9 +30,10 @@
     font-style: italic;
 }
 
-.posts .list-group-item {
+.posts .index {
     border-radius: 5px 5px 5px 5px;
     border: 1px outset #000000;
+    box-shadow: 0 10px 10px 0 #000000; 
 }
 
 .posts .lead { 
@@ -41,14 +43,43 @@
 .posts .fav_button {
     display: inline-block;
     margin: 0 2px;
+    font-weight: bold;
+    box-shadow: 0 4px 2px #000000;
+    border-left: 10px solid #FFFFFF;
+}
+
+.posts .fav_button_inline-block {
+    display: inline-block;
 }
 
 .posts .delete_button {
     display: inline-block;
     margin: 0 2px;
+    font-weight: bold;
+    box-shadow: 0 4px 2px #000000;
+    border-left: 10px solid #FFFFFF;
+    
 }
 
 .posts .edit_button {
     display: inline-block;
     margin: 0 2px;
+    font-weight: bold;
+    box-shadow: 0 4px 2px #000000;
+    border-left: 10px solid #FFFFFF;
 }
+
+.posts .unfav_button {
+    background-color: #990000;
+    display: inline-block;
+    margin: 0 2px;
+    font-weight: bold;
+    box-shadow: 0 4px 2px #000000;
+    border-left: 10px solid #FFFFFF;
+}
+
+.posts .show_button {
+    font-weight: bold;
+    box-shadow: 0 4px 2px #000000;
+}
+
