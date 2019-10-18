@@ -7,9 +7,9 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
   mount_uploader :image, ImageUploader
-  has_many :posts
-  has_many :favorites
-  has_many :favposts, through: :favorites, source: :post
+  has_many :posts, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :favposts, through: :favorites, source: :post, dependent: :destroy
   
   def favorite(post)
     self.favorites.find_or_create_by(post_id: post.id)
@@ -23,6 +23,4 @@ class User < ApplicationRecord
   def favpost?(post)
     self.favposts.include?(post)
   end
-
-
 end

@@ -1,10 +1,10 @@
 class Post < ApplicationRecord
   belongs_to :user
   
-  has_many :favorites
-  has_many :users, through: :favorites
+  has_many :favorites, dependent: :destroy
+  has_many :users, through: :favorites, dependent: :destroy
   
-  has_many :searches
+  has_many :searches, dependent: :destroy
   has_many :tags, through: :searches
   
   validates :author_name, presence: true, length: { maximum:30 }
@@ -13,11 +13,13 @@ class Post < ApplicationRecord
   validates :tweet_content, presence: true,  length: { maximum:500 }
   validate :introduce_longer_than_tweet
   
+  mount_uploader :image, ImageUploader
+  
   private
 
   def introduce_longer_than_tweet
     if self.introduce_content.length > self.tweet_content.length
-      errors.add(:tweet_content, ":「ひとこと」が「紹介する一節」より短いため、投稿できません")
+      errors.add(:tweet_content, "「ひとこと」が「紹介する一節」より短いため、投稿できません")
     end
   end
 end
