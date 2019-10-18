@@ -1,26 +1,27 @@
 <div class="row">
   <aside class="col-sm-3">
-    <div class="card text-white bg-primary mt-3">
+    <div class="card text-black bg-light mt-3">
       <img class="card-img-top" src=<%= @user.image %> alt="user-image">
         <div class="card-body">
           <h4 class="card-title mt-2 text-center"><%= @user.name %></h4>
         </div>
     </div>
+    <div class="mt-3 text-center">
+      <% if current_user == @user %>
+        <%= link_to "ユーザー情報の編集", edit_user_path, class: "btn btn-sm btn-info" %>
+      <% end %>
+      <% if current_user.admin? %>
+        <%= link_to "ユーザーの削除", admin_user_path(id: @user.id), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger btn-sm" %>
+      <% end %>
+    </div>
   </aside>
   <div class="col-sm-9">
     <ul class="nav nav-tabs nav-justified mt-3">
-      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= "active" if current_page?(user_path(@user)) %> bg-secondary text-white">投稿</a></li>
-      <li class="nav-item"><a href="<%= likes_user_path(@user) %>" class="nav-link <%= "active" if current_page?(likes_user_path(@user)) %>">お気に入り</a></li>
+      <li class="nav-item bd"><a href="<%= user_path(@user) %>" class="nav-link <%= "active" if current_page?(user_path(@user)) %> bg-right text-black bd">投稿</a></li>
+      <li class="nav-item bd"><a href="<%= likes_user_path(@user) %>" class="nav-link <%= "active" if current_page?(likes_user_path(@user)) %> bd">お気に入り</a></li>
     </ul>
     <%= render "layouts/posts", posts: @posts %>
     <%= paginate @posts %>
-    
-    <% if current_user == @user %>
-      <%= link_to "ユーザー情報の編集", edit_user_path, class: "btn btn-sm btn-outline-info" %>
-    <% end %>
-    <% if current_user.admin? %>
-      <%= link_to "ユーザーの削除", admin_user_path(id: @user.id), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-outline-danger btn-sm" %>
-    <% end %>
   </div>
 </div>
 

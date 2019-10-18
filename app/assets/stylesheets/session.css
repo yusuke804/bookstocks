@@ -1,0 +1,14 @@
+.sessions {
+    background-image: url("toppage.jpg")
+}
+
+.sessions h1 {
+    width: 380px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgba( 255, 255, 255, 0.40);
+    border-left: 10px solid #000080;
+    border-right: 10px solid #000080;
+    box-shadow: 7px 7px 5px #000000;
+    border-radius: 5px;
+}
