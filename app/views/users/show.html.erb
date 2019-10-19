@@ -1,7 +1,7 @@
 <div class="row">
   <aside class="col-sm-3">
     <div class="card text-black bg-light mt-3">
-      <img class="card-img-top" src=<%= @user.image %> alt="user-image">
+      <%= image_tag @user.image.url, class: "card-img-top mt4" %> 
         <div class="card-body">
           <h4 class="card-title mt-2 text-center"><%= @user.name %></h4>
         </div>

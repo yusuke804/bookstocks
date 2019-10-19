@@ -21,7 +21,7 @@
   <% @posts.each do |post| %>
     <div class="row mt-5 mb-5">
       <div class="card text-black bg-light col-sm-3">
-        <img class="card-img-top mt-4" src=<%= post.user.image %> alt="user-image">
+        <%= image_tag post.user.image.url, class: "card-img-top mt-4" %> 
           <h4 class="card-title text-center mt-2"><%= post.user.name %></h4>
       </div>  
       <ul class="list-group col-sm-8 ml-2"> 
