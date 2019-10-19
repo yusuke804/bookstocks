@@ -7,7 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(name: "管理者",
-             email: "1234@1234.ac.jp",
+             email: "14au064f@al.rikkyo.ac.jp",
              password: "123412341234",
              password_confirmation: "123412341234",
              admin: true)
+             
+["悲しいことがあったとき", "寂しさを感じたとき", "怒りを感じたとき", "嬉しいことがあったとき", "幸せな気分に浸りたいとき", "物事を深く考えたいとき", "思いっきり笑いたいとき", "悲しみに沈みたいとき"].each do |name|
+  Tag.create!(tag_name: "#{name}")
+end
