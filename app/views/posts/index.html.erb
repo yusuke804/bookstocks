@@ -21,8 +21,14 @@
   <% @posts.each do |post| %>
     <div class="row mt-5 mb-5">
       <div class="card text-black bg-light col-sm-3">
-        <%= image_tag post.user.image.url, class: "card-img-top mt-4" %> 
+        <% if post.user.image? %>
+          <%= image_tag post.user.image.url, class: "card-img-top mt-4" %> 
+        <% else %>
+          <%= image_tag "books.jpg", class: "card-img-top mt4" %>
+        <% end %>
+        <div class="card-body">
           <h4 class="card-title text-center mt-2"><%= post.user.name %></h4>
+        </div>
       </div>  
       <ul class="list-group col-sm-8 ml-2"> 
         <li class="list-group-item media mb-3 text-center index">     
