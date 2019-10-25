@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   validates :author_name, presence: true, length: { maximum:30 }
   validates :novel_title, presence: true, length: { maximum:50 }
   validates :introduce_content, presence: true, length: { maximum:100 }
-  validates :tweet_content, presence: true,  length: { maximum:500 }
+  validates :tweet_content, presence: true,  length: { maximum:1000 }
   validate :introduce_longer_than_tweet
   
   mount_uploader :image, ImageUploader

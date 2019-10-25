@@ -7,5 +7,8 @@
     <%= link_to "#{tag.tag_name}", searched_result_posts_path(tag_id: tag.id), class: "btn btn-outline-primary btn-lg" %>
   </div>
 <% end %>
+<div class="text-center mt-3">
+  <%= link_to "戻る", "javascript:history.back()" %>
+</div>
 
 
