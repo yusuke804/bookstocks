@@ -4,14 +4,27 @@
       <% if @post.user.image? %>
         <%= image_tag @post.user.image.url, class: "card-img-top mt-4" %>
       <% else %>
-        <%= image_tag "books.jpg", class: "card-img-top mt4" %>
+        <%= image_tag "books.jpg", class: "card-img-top mt-4" %>
       <% end %>
       <div class="card-body">
         <h4 class="card-title mt-2 text-center"><%= link_to "#{@post.user.name}", user_path(id: @post.user.id) %></h4>
       </div>
     </div>
+    <% if @book.present? %>
+      <div class="mt-5 bt-2 pt-2 pb-2 bg-light">
+        <div class="text-center">
+          <%= image_tag @book.first['largeImageUrl'] %>
+        </div>
+        <div class="text-center">
+          <%= "#{@book.first['title']}" %> <br> <%= "#{@book.first['author']}" %> <br>  <%= "#{@book.first["publisherName"]}" %>  
+        </div>
+        <div class="text-center">
+          <%= link_to "楽天ブックス商品詳細ページへ", @book.first['itemUrl'], class: "rakuten-link" %>
+        </div>
+      </div>
+  <% end %>
   </aside>
-  <ul class="col-sm-8 list-group">
+  <div class="col-sm-8">
     <li class="list-group-item list-group-item-secondary text-center">紹介する一節</li>
     <li class="list-group-item text-center">
       <div>
@@ -41,7 +54,7 @@
         <% end %>
       </div>
     </li>
-    <li class="list-group-item list-group-item-secondary text-center">この小説を物語る画像</li>
+    <li class="list-group-item list-group-item-secondary text-center">この一説を物語る画像</li>
     <li class="list-group-item text-center">
       <div>
         <% if @post.image? %>
@@ -51,16 +64,18 @@
         <% end %>
       </div>
     </li>
-    <li class="list-group-item text-center list-group-item-secondary">
-      <div class="fav_button_inline-block">
-        <%= render "favorites/fav_button", post: @post %>
-      </div>
-      <% if current_user == @post.user %>  
-        <%= link_to "削除", @post, method: :delete, data: { confirm: "本当に削除しますか？（データは復元しません）" }, class: "delete_button btn btn-danger" %>
-        <%= link_to "編集", edit_post_path, class: "edit_button btn btn-info" %>
+    <% if logged_in? %>  
+      <li class="list-group-item text-center list-group-item-secondary">
+        <div class="fav_button_inline-block">
+          <%= render "favorites/fav_button", post: @post %>
+        </div>
+        <% if current_user == @post.user %>  
+          <%= link_to "削除", @post, method: :delete, data: { confirm: "本当に削除しますか？（データは復元しません）" }, class: "delete_button btn btn-danger" %>
+          <%= link_to "編集", edit_post_path, class: "edit_button btn btn-info" %>
+        <% end %>
       <% end %>
     </li>
-  </ul>
+  </div>
 </div>
 <div class="offset-sm-2 text-center mt-3">
   <%= link_to "戻る", "javascript:history.back()" %>

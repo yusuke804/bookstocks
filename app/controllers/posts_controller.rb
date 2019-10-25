@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find(params[:id])
+    @book = RakutenWebService::Books::Book.search( title: @post.novel_title ).first(1)
   end
 
   def new
