@@ -21,8 +21,9 @@
 ## 使用技術
 
 ### インフラ
-AWS:EC2 RDS(MySQL) VPC Route53
-Webサーバー：nginx+unicorn
+_AWS:EC2 RDS(MySQL) VPC Route53_
+
+_Webサーバー：nginx+unicorn_
 
 ### 使用言語、フレームワーク
 Ruby, Ruby On Rails, HTML, CSS, Bootstrap, RSpec(テストフレームワーク）
