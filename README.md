@@ -21,7 +21,7 @@
 ## 使用技術
 
 ### インフラ
-*AWS:EC2 RDS(MySQL) VPC Route53*
+*AWS:EC2, RDS(MySQL), VPC, Route53*
 
 *Webサーバー：nginx+unicorn*
 
